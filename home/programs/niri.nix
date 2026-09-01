@@ -33,6 +33,11 @@
       };
     };
 
+    cursor = {
+      theme = "Bibata-Modern-Classic";
+      size = 18;
+    };
+
     input = {
       keyboard.xkb.layout = "us";
 
@@ -128,24 +133,24 @@
       "Mod+J".action = focus-window-down;
       "Mod+K".action = focus-window-up;
 
-      "Mod+Shift+H".action = move-column-left;
-      "Mod+Shift+L".action = move-column-right;
-      "Mod+Shift+J".action = move-window-down;
-      "Mod+Shift+K".action = move-window-up;
+      "Mod+Alt+H".action = move-column-left;
+      "Mod+Alt+L".action = move-column-right;
+      "Mod+Alt+J".action = move-window-down;
+      "Mod+Alt+K".action = move-window-up;
 
       "Mod+Comma".action = consume-window-into-column;
       "Mod+Period".action = expel-window-from-column;
       "Mod+W".action = toggle-column-tabbed-display;
 
-      "Mod+Ctrl+J".action = focus-workspace-down;
-      "Mod+Ctrl+K".action = focus-workspace-up;
-      "Mod+Ctrl+Shift+J".action = move-window-to-workspace-down;
-      "Mod+Ctrl+Shift+K".action = move-window-to-workspace-up;
+      "Mod+Shift+J".action = focus-workspace-down;
+      "Mod+Shift+K".action = focus-workspace-up;
+      "Mod+Alt+Shift+J".action = move-window-to-workspace-down;
+      "Mod+Alt+Shift+K".action = move-window-to-workspace-up;
 
       "Mod+N".action = focus-monitor-right;
       "Mod+Shift+N".action = focus-monitor-left;
-      "Mod+Ctrl+N".action = move-window-to-monitor-right;
-      "Mod+Ctrl+Shift+N".action = move-window-to-monitor-left;
+      "Mod+Alt+N".action = move-window-to-monitor-right;
+      "Mod+Alt+Shift+N".action = move-window-to-monitor-left;
 
       "Mod+V".action = toggle-window-floating;
       "Mod+Shift+V".action = switch-focus-between-floating-and-tiling;

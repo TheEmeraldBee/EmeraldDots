@@ -1,11 +1,31 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    alejandra
-    claude-code
-    godot_4
+    # Home Manager
     home-manager
-    just
+
+    # AI
+    claude-code
+
+    # Formatter
+    alejandra
     nixfmt
+
+    # Language Servers
+    nixd
+    tombi
+    markdown-oxide
+    just-lsp
+    texlab
+    ruff
+    ty
+
+    # Game Dev
+    godot_4
+
+    # CLI
     ripgrep
+
+    # Build
+    just
   ];
 }

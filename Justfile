@@ -2,11 +2,11 @@ default:
     @just --list
 
 # Rebuild and switch the NixOS system
-rebuild:
+rebuild: fmt
     nh os switch . -H linux-laptop
 
 # Rebuild and switch the standalone home-manager profile
-home:
+home: fmt
     nh home switch . -c brightonlcox
 
 # Update all flake inputs
@@ -14,7 +14,7 @@ update:
     nix flake update
 
 # Check that the flake evaluates and builds cleanly
-check:
+check: fmt
     nix flake check
 
 # Format all Nix files in the repository

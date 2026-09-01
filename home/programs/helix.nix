@@ -4,18 +4,38 @@
     themes = {
       kanagawa-invis = {
         inherits = "kanagawa";
-        "ui.background" = { };
-        "ui.statusline.normal" = {fg = "#181616"; bg = "#8ba4b0"; modifiers = ["bold"];};
-        "ui.statusline.insert" = {fg = "#181616"; bg = "#87a987"; modifiers = ["bold"];};
-        "ui.statusline.select" = {fg = "#181616"; bg = "#a292a3"; modifiers = ["bold"];};
-        "ui.bufferline" = {fg = "#a6a69c"; bg = "#282727"; };
-        "ui.bufferline.active" = {fg = "#181616"; bg = "#c8c093"; modifiers = ["bold"]; };
+        "ui.background" = {};
+        "ui.statusline.normal" = {
+          fg = "#181616";
+          bg = "#8ba4b0";
+          modifiers = ["bold"];
+        };
+        "ui.statusline.insert" = {
+          fg = "#181616";
+          bg = "#87a987";
+          modifiers = ["bold"];
+        };
+        "ui.statusline.select" = {
+          fg = "#181616";
+          bg = "#a292a3";
+          modifiers = ["bold"];
+        };
+        "ui.bufferline" = {
+          fg = "#a6a69c";
+          bg = "#282727";
+        };
+        "ui.bufferline.active" = {
+          fg = "#181616";
+          bg = "#c8c093";
+          modifiers = ["bold"];
+        };
       };
     };
     settings = {
       theme = "kanagawa-invis";
 
       editor = {
+        mouse = true;
         shell = ["nu" "-c"];
         text-width = 80;
         bufferline = "multiple";
@@ -29,7 +49,7 @@
           mode.insert = "INSERT";
           mode.select = "VISUAL";
         };
-        
+
         cursor-shape = {
           normal = "block";
           insert = "bar";
@@ -45,6 +65,10 @@
           Q = ":q";
           s.w = ":toggle-option soft-wrap.enable";
           r = ":reload";
+        };
+
+        space = {
+          l = ":toggle-option lsp.display-inlay-hints";
         };
 
         space.f = {

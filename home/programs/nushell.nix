@@ -7,6 +7,8 @@
     shellAliases.d = "yazi";
     shellAliases.dots = "cd ~/dotfiles";
 
+    shellAliases.zi = "__zoxide_zi";
+
     environmentVariables.EDITOR = "hx";
     # Bitwarden desktop's SSH agent (its own socket, not the system ssh-agent)
     environmentVariables.SSH_AUTH_SOCK = "${config.home.homeDirectory}/.bitwarden-ssh-agent.sock";

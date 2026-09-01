@@ -17,6 +17,9 @@
     ./programs/noctalia.nix
     ./programs/yazi.nix
     ./programs/devenv.nix
+
+    ./programs/cursor.nix
+
     ./hosts/${hostname}.nix
   ];
 
