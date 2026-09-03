@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   # pkexec ships non-setuid unless opted into explicitly; shell.greeter_sync
   # invokes it directly (see home/programs/noctalia.nix), so it needs to work
   security.polkit.enablePkexecWrapper = true;

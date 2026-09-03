@@ -4,7 +4,8 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   niriSettings = with config.lib.niri.actions; {
     outputs = {
       "DP-4" = {
@@ -64,13 +65,15 @@
       empty-workspace-above-first = true;
       center-focused-column = "never";
 
+      background-color = "transparent";
+
       preset-column-widths = [
-        {proportion = 0.25;}
-        {proportion = 0.33333;}
-        {proportion = 0.5;}
-        {proportion = 0.66667;}
-        {proportion = 0.75;}
-        {proportion = 1.0;}
+        { proportion = 0.25; }
+        { proportion = 0.33333; }
+        { proportion = 0.5; }
+        { proportion = 0.66667; }
+        { proportion = 0.75; }
+        { proportion = 1.0; }
       ];
       default-column-width.proportion = 0.5;
 
@@ -96,10 +99,10 @@
     };
 
     spawn-at-startup = [
-      {argv = ["noctalia"];}
+      { argv = [ "noctalia" ]; }
     ];
 
-    debug.honor-xdg-activation-with-invalid-serial = [];
+    debug.honor-xdg-activation-with-invalid-serial = [ ];
 
     window-rules = [
       {
@@ -113,10 +116,16 @@
         draw-border-with-background = false;
       }
       {
-        matches = [{app-id = "dev.noctalia.Noctalia";}];
+        matches = [ { app-id = "dev.noctalia.Noctalia"; } ];
         open-floating = true;
         default-column-width.fixed = 1080;
         default-window-height.fixed = 920;
+      }
+    ];
+
+    layer-rules = [
+      {
+        place-within-backdrop = true;
       }
     ];
 
@@ -183,28 +192,28 @@
     (lib.evalModules {
       modules = [
         inputs.niri.lib.internal.settings-module
-        {programs.niri.settings = niriSettings;}
+        { programs.niri.settings = niriSettings; }
       ];
     }).config.programs.niri.config;
 
   blurWindowRule =
     inputs.niri.lib.kdl.node "window-rule"
-    []
-    [
-      (
-        inputs.niri.lib.kdl.node "background-effect"
-        []
-        [
-          (inputs.niri.lib.kdl.node "blur" [true] [])
-        ]
-      )
-    ];
-in {
-  imports = [inputs.niri.homeModules.niri];
+      [ ]
+      [
+        (inputs.niri.lib.kdl.node "background-effect"
+          [ ]
+          [
+            (inputs.niri.lib.kdl.node "blur" [ true ] [ ])
+          ]
+        )
+      ];
+in
+{
+  imports = [ inputs.niri.homeModules.niri ];
 
   programs.niri.enable = true;
   # nixpkgs' package, not niri-flake's vendored build, see modules/desktop/niri.nix
   programs.niri.package = pkgs.niri;
 
-  programs.niri.config = renderedSettings ++ [blurWindowRule];
+  programs.niri.config = renderedSettings ++ [ blurWindowRule ];
 }

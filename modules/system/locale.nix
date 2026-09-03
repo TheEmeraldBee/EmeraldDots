@@ -1,3 +1,3 @@
-{...}: {
+{ ... }: {
   time.timeZone = "America/Denver";
 }

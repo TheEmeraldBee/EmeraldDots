@@ -16,14 +16,17 @@
   ./hardware/firmware.nix
 
   ./desktop/niri.nix
+
+  ./desktop/noctalia.nix
+
   ./desktop/xkb.nix
   ./desktop/firefox.nix
   ./desktop/greetd.nix
+  ./desktop/kdeconnect.nix
+  ./desktop/portal.nix
 
   ./packages/cli.nix
   ./packages/dev.nix
   ./packages/security.nix
   ./packages/extra.nix
-
-  ./desktop/noctalia.nix
 ]

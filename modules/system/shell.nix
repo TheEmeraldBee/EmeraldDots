@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.nushell.enable = true;
-  environment.shells = [pkgs.nushell];
+  environment.shells = [ pkgs.nushell ];
 }

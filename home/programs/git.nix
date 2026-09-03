@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   gitCredentialBitwarden = pkgs.writeShellApplication {
     name = "git-credential-bitwarden";
     runtimeInputs = [
@@ -26,7 +27,8 @@
       [ -n "$password" ] && printf 'password=%s\n' "$password"
     '';
   };
-in {
+in
+{
   programs.git = {
     enable = true;
     settings = {

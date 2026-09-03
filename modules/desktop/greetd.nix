@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   # enables greetd and points its session command at noctalia-greeter itself
   programs.noctalia-greeter = {
     enable = true;
@@ -19,8 +19,8 @@
   # fails immediately; wait for udev to finish creating device nodes, and
   # give it more room to retry in case the timing varies boot-to-boot
   systemd.services.greetd = {
-    after = ["systemd-udev-settle.service"];
-    wants = ["systemd-udev-settle.service"];
+    after = [ "systemd-udev-settle.service" ];
+    wants = [ "systemd-udev-settle.service" ];
     startLimitIntervalSec = 60;
     startLimitBurst = 10;
     serviceConfig.RestartSec = "2s";

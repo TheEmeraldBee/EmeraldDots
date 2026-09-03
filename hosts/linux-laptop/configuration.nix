@@ -1,9 +1,8 @@
-{...}: {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ]
-    ++ (import ../../modules);
+{ ... }: {
+  imports = [
+    ./hardware-configuration.nix
+  ]
+  ++ (import ../../modules);
 
   networking.hostName = "BrightonLaptop";
 

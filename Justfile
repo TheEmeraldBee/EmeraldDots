@@ -19,7 +19,7 @@ check: fmt
 
 # Format all Nix files in the repository
 fmt:
-    alejandra .
+    nixfmt **/*.nix
 
 # Remove old generations and garbage-collect the Nix store
 gc:

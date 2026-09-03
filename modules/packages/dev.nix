@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     # Home Manager
     home-manager
@@ -7,8 +7,8 @@
     claude-code
 
     # Formatter
-    alejandra
     nixfmt
+    stylua
 
     # Language Servers
     nixd
@@ -18,6 +18,7 @@
     texlab
     ruff
     ty
+    lua-language-server
 
     # Game Dev
     godot_4

@@ -1,24 +1,45 @@
-{...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}:
+{
   programs.helix = {
     enable = true;
+    package = inputs.helix.packages.${pkgs.system}.default;
+    languages = {
+      language = [
+        {
+          name = "lua";
+          auto-format = true;
+          formatter = {
+            command = "stylua";
+            args = [
+              "--search-parent-directories"
+              "-"
+            ];
+          };
+        }
+      ];
+    };
     themes = {
       kanagawa-invis = {
-        inherits = "kanagawa";
-        "ui.background" = {};
+        inherits = "kanagawa-dragon";
+        "ui.background" = { };
         "ui.statusline.normal" = {
           fg = "#181616";
           bg = "#8ba4b0";
-          modifiers = ["bold"];
+          modifiers = [ "bold" ];
         };
         "ui.statusline.insert" = {
           fg = "#181616";
           bg = "#87a987";
-          modifiers = ["bold"];
+          modifiers = [ "bold" ];
         };
         "ui.statusline.select" = {
           fg = "#181616";
           bg = "#a292a3";
-          modifiers = ["bold"];
+          modifiers = [ "bold" ];
         };
         "ui.bufferline" = {
           fg = "#a6a69c";
@@ -27,7 +48,7 @@
         "ui.bufferline.active" = {
           fg = "#181616";
           bg = "#c8c093";
-          modifiers = ["bold"];
+          modifiers = [ "bold" ];
         };
       };
     };
@@ -36,7 +57,10 @@
 
       editor = {
         mouse = true;
-        shell = ["nu" "-c"];
+        shell = [
+          "nu"
+          "-c"
+        ];
         text-width = 80;
         bufferline = "multiple";
         color-modes = true;
