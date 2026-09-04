@@ -97,6 +97,7 @@
           "launcher"
           "wallpaper"
           "battery"
+          "power_profile"
         ];
         center = [
           "media"

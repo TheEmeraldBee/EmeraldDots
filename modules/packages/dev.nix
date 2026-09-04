@@ -28,5 +28,9 @@
 
     # Build
     just
+
+    # Diff
+    diffnav
+    delta
   ];
 }

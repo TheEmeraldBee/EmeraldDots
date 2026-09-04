@@ -17,6 +17,10 @@
     ./programs/noctalia.nix
     ./programs/yazi.nix
     ./programs/devenv.nix
+    ./programs/modrinth.nix
+    ./programs/discord.nix
+    ./programs/krita.nix
+    ./programs/lmms.nix
 
     ./programs/cursor.nix
 

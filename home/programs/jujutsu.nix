@@ -6,6 +6,7 @@
       user.name = "Brighton Cox";
 
       ui.default-command = "status";
+      ui.diff-formatter = ":git";
     };
   };
 }

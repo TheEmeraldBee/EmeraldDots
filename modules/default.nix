@@ -24,6 +24,7 @@
   ./desktop/greetd.nix
   ./desktop/kdeconnect.nix
   ./desktop/portal.nix
+  ./desktop/steam.nix
 
   ./packages/cli.nix
   ./packages/dev.nix

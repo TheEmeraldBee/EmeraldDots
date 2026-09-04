@@ -68,12 +68,9 @@ let
       background-color = "transparent";
 
       preset-column-widths = [
-        { proportion = 0.25; }
         { proportion = 0.33333; }
         { proportion = 0.5; }
         { proportion = 0.66667; }
-        { proportion = 0.75; }
-        { proportion = 1.0; }
       ];
       default-column-width.proportion = 0.5;
 
@@ -121,6 +118,10 @@ let
         default-column-width.fixed = 1080;
         default-window-height.fixed = 920;
       }
+      {
+        matches = [ { app-id = "dev.theemeraldbee.AstralHeartbeat"; } ];
+        open-floating = true;
+      }
     ];
 
     layer-rules = [
@@ -132,7 +133,7 @@ let
     prefer-no-csd = true;
 
     binds = {
-      "Mod+Return".action = spawn "ghostty" "--background-opacity=0.85";
+      "Mod+Return".action = spawn "ghostty";
       "Mod+E".action = spawn "zen";
       "Mod+Space".action = spawn "noctalia" "msg" "panel-toggle" "launcher";
       "Mod+Q".action = close-window;
@@ -181,6 +182,8 @@ let
       # "Mod+Ctrl+Shift+S".action = screenshot-window;
 
       "Mod+Shift+Slash".action = show-hotkey-overlay;
+
+      "Mod+C".action = center-column;
 
       "Mod+O".action = toggle-overview;
       "Mod+Ctrl+Shift+Q".action = quit;

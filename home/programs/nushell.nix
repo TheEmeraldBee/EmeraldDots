@@ -13,6 +13,8 @@
     # Bitwarden desktop's SSH agent (its own socket, not the system ssh-agent)
     environmentVariables.SSH_AUTH_SOCK = "${config.home.homeDirectory}/.bitwarden-ssh-agent.sock";
 
+    environmentVariables.QT_QPA_PLATFORM = "wayland";
+
     envFile.text = ''
       def --env source-posix-env [file: string] {
         if ($file | path exists) {
@@ -43,6 +45,22 @@
     extraConfig = ''
       def b [file: path] {
         ^zen --blank-window $"file://($file | path expand)"
+      }
+
+      # A diff-helper for jujutsu
+      def jd [--help(-h), --unified(-u), branch?:string] {
+        mut branch = $branch
+
+        if ($branch | is-empty) {
+          $branch = "@-"
+        }
+        
+        let text = jj diff --to @ --from $branch
+        if $unified {
+          $text | diffnav -u
+        } else {
+          $text | diffnav -s
+        }
       }
 
       # hand-applied since noctalia has no nushell theming template
