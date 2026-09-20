@@ -89,6 +89,7 @@
           Q = ":q";
           s.w = ":toggle-option soft-wrap.enable";
           r = ":reload";
+          c = [":set mouse false" ":set mouse true"];
         };
 
         space = {

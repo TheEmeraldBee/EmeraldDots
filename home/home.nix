@@ -20,7 +20,9 @@
     ./programs/modrinth.nix
     ./programs/discord.nix
     ./programs/krita.nix
+    ./programs/blender.nix
     ./programs/lmms.nix
+    ./programs/pi.nix
 
     ./programs/cursor.nix
 

@@ -18,6 +18,7 @@
   ./desktop/niri.nix
 
   ./desktop/noctalia.nix
+  ./desktop/fonts.nix
 
   ./desktop/xkb.nix
   ./desktop/firefox.nix

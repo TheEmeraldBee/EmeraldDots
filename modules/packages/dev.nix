@@ -32,5 +32,11 @@
     # Diff
     diffnav
     delta
+
+    # JSON
+    jq
+
+    nmap
+    gdtoolkit_4
   ];
 }

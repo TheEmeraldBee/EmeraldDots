@@ -1,0 +1,31 @@
+#!/usr/bin/env nu
+
+# Combines the given images into one compressed PDF
+def main [
+    output: string = "output.pdf" # Path for the resulting PDF
+    ...images: string             # Image files to combine
+    --quality: int = 60           # JPEG quality (lower is smaller, less readable)
+    --max-dim: int = 2000         # Longest side in pixels after resize
+] {
+    if ($images | is-empty) {
+        error make { msg: "Provide at least one image file" }
+    }
+
+    let work_dir = (mktemp -d)
+
+    let prepared = $images | enumerate | each { |item|
+        let src = $item.item
+        if not ($src | path exists) {
+            error make { msg: $"File not found: ($src)" }
+        }
+        let dest = ($work_dir | path join $"page-($item.index).jpg")
+        magick $src -auto-orient -resize $"($max_dim)x($max_dim)>" -quality $quality -colorspace sRGB $dest
+        $dest
+    }
+
+    magick ...$prepared $output
+
+    rm -r $work_dir
+
+    print $"Wrote ($output) from ($prepared | length) image\(s\)"
+}
